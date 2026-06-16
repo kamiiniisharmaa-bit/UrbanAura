@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>UrbanAura Collective · About — Studio & Spirit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #faf8f5;
+      color: #1e1e2a;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header consistent with brand */
+    .site-header {
+      background-color: #ffffffdd;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e9e6e0;
+      padding: 18px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-area h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e2a3e, #2c5f5f);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .logo-area span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #5f6c7a;
+      display: block;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e3f;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #c17b4c;
+    }
+
+    .icon-group {
+      display: flex;
+      gap: 20px;
+    }
+
+    .icon-group span {
+      font-size: 1.4rem;
+      cursor: default;
+    }
+
+    /* ========== ABOUT HERO ========== */
+    .about-hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 48px;
+      margin: 56px 0 64px;
+      background: #fef7ed;
+      border-radius: 48px;
+      padding: 48px 44px;
+    }
+
+    .about-hero-text {
+      flex: 1.2;
+    }
+
+    .about-hero-text .badge {
+      background: #e9d9c9;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #5e3a2b;
+      margin-bottom: 20px;
+    }
+
+    .about-hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #1e2a2f;
+      margin-bottom: 20px;
+    }
+
+    .about-hero-text p {
+      font-size: 1.1rem;
+      color: #4b5a62;
+      margin-bottom: 24px;
+    }
+
+    .about-hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .about-hero-image img {
+      width: 100%;
+      max-width: 440px;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+      object-fit: cover;
+    }
+
+    /* manifesto quote */
+    .manifesto {
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 48px 48px;
+      margin: 20px 0 56px;
+      text-align: center;
+      border: 1px solid #ede6dd;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+    }
+
+    .manifesto blockquote {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #2c5f5f;
+      max-width: 850px;
+      margin: 0 auto 24px;
+      quotes: "“" "”" "‘" "’";
+    }
+
+    .manifesto blockquote::before {
+      content: "“";
+      font-size: 3rem;
+      margin-right: 8px;
+      color: #c17b4c;
+    }
+
+    .manifesto blockquote::after {
+      content: "”";
+      font-size: 3rem;
+      margin-left: 8px;
+      vertical-align: top;
+      color: #c17b4c;
+    }
+
+    .manifesto p {
+      color: #5f6f74;
+    }
+
+    /* values grid (unique pillars) */
+    .values-section {
+      margin: 64px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 650;
+      margin-bottom: 40px;
+      border-left: 5px solid #c17b4c;
+      padding-left: 20px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+    }
+
+    .value-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: 0.25s ease;
+      border: 1px solid #efe7df;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
+    }
+
+    .value-icon {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .value-card p {
+      color: #4e5f64;
+    }
+
+    /* team section (unique names + roles) */
+    .team-section {
+      margin: 72px 0 56px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 38px;
+      margin-top: 32px;
+    }
+
+    .team-card {
+      background: white;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid #ede6dd;
+      transition: 0.2s;
+    }
+
+    .team-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 18px 28px -12px rgba(0,0,0,0.06);
+    }
+
+    .team-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+
+    .team-info {
+      padding: 24px 20px 28px;
+      text-align: center;
+    }
+
+    .team-info h4 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .team-info .role {
+      color: #c17b4c;
+      font-weight: 500;
+      margin: 8px 0 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .team-info .bio {
+      font-size: 0.9rem;
+      color: #4f6a6f;
+    }
+
+    /* atelier story / studio imagery */
+    .atelier-story {
+      background: linear-gradient(115deg, #f5efe8 0%, #fff8f0 100%);
+      border-radius: 48px;
+      padding: 52px 44px;
+      margin: 64px 0 48px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .atelier-text {
+      flex: 1.2;
+    }
+
+    .atelier-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .atelier-text p {
+      margin-bottom: 20px;
+      color: #3b4a4d;
+    }
+
+    .atelier-img {
+      flex: 0.9;
+      text-align: center;
+    }
+
+    .atelier-img img {
+      width: 100%;
+      border-radius: 36px;
+      max-width: 360px;
+      box-shadow: 0 18px 24px -12px rgba(0,0,0,0.12);
+    }
+
+    /* newsletter signup (minimal) */
+    .newsletter-mini {
+      background: #1e2a2f;
+      border-radius: 44px;
+      padding: 48px 40px;
+      text-align: center;
+      color: white;
+      margin: 48px 0 64px;
+    }
+
+    .newsletter-mini h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .newsletter-mini p {
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+
+    .news-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .news-form input {
+      flex: 2;
+      padding: 14px 20px;
+      border-radius: 60px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .news-form button {
+      background: #c17b4c;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 60px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .news-form button:hover {
+      background: #a45f36;
+    }
+
+    /* footer */
+    footer {
+      border-top: 1px solid #e3dbd0;
+      padding: 48px 0 32px;
+      background: #faf8f5;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-col h4 {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #4f5a5e;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 24px 0 16px;
+      color: #7d8e94;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+      .about-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 36px 24px;
+      }
+      .manifesto blockquote {
+        font-size: 1.4rem;
+      }
+      .atelier-story {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo-area">
+      <h1>URBANaura</h1>
+      <span>collective · curated living</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      <div class="icon-group">
+        <span>🔍</span>
+        <span>🛒</span>
+        <span>👤</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- hero about -->
+    <div class="about-hero">
+      <div class="about-hero-text">
+        <div class="badge">✦ est. 2021 ✦</div>
+        <h1>An atelier for the curious & the mindful.</h1>
+        <p>UrbanAura Collective exists at the intersection of raw craft and modern poetry — a gathering of objects that carry whispers of their makers. We don’t just sell things; we share stories, texture, and the quiet beauty of wabi-sabi.</p>
+        <p>Based between Lisbon, Kyoto, and Brooklyn, our collective champions slow production, timeless design, and a deep respect for natural materials.</p>
+      </div>
+      <div class="about-hero-image">
+        <img src="https://picsum.photos/id/92/500/560" alt="UrbanAura founders workshop atmosphere">
+      </div>
+    </div>
+
+    <!-- manifesto block -->
+    <div class="manifesto">
+      <blockquote>We believe that every object should feel like an echo — of the earth, the hand, and a story worth telling.</blockquote>
+      <p>— Manifesto of UrbanAura Collective</p>
+    </div>
+
+    <!-- values / pillars (unique names) -->
+    <div class="values-section">
+      <div class="section-title">Our foundations</div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <h3>Radical slowness</h3>
+          <p>We reject mass production. From clay to loom, each piece is made in limited series, often taking weeks to complete.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>Maker-first ethics</h3>
+          <p>Fair wages, transparent sourcing, and long-term relationships with artisans across Portugal, Japan and Morocco.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🍂</div>
+          <h3>Imperfection as identity</h3>
+          <p>We celebrate kintsugi philosophy — cracks, color variations, and organic edges are marks of authenticity.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🌀</div>
+          <h3>Circular future</h3>
+          <p>Repair kits, take-back programs, and plastic-free shipping are core to our 2030 low-waste pledge.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- team section (unique names + real-feel images) -->
+    <div class="team-section">
+      <div class="section-title">The collective behind the aura</div>
+      <div class="team-grid">
+        <div class="team-card">
+          <img class="team-img" src="https://picsum.photos/id/64/400/340" alt="portrait of Elara Moniz">
+          <div class="team-info">
+            <h4>Elara Moniz</h4>
+            <div class="role">Founder & creative director</div>
+            <p class="bio">Former ceramicist, Elara started UrbanAura from a tiny studio in Lisbon. She hand-selects every artisan collaboration.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img class="team-img" src="https://picsum.photos/id/91/400/340" alt="portrait of Kenji Yamamoto">
+          <div class="team-info">
+            <h4>Kenji Yamamoto</h4>
+            <div class="role">Textile curator, Kyoto</div>
+            <p class="bio">Kenji bridges Japanese indigo dyeing traditions with contemporary weaving, overseeing the Knot & Loom series.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img class="team-img" src="https://picsum.photos/id/26/400/340" alt="portrait of Sasha Reyes">
+          <div class="team-info">
+            <h4>Sasha Reyes</h4>
+            <div class="role">Head of sustainability</div>
+            <p class="bio">Sasha leads material innovation, circular packaging and carbon-neutral shipping initiatives.</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <img class="team-img" src="https://picsum.photos/id/20/400/340" alt="portrait of Mateo Flores">
+          <div class="team-info">
+            <h4>Mateo Flores</h4>
+            <div class="role">Objects & woodcraft</div>
+            <p class="bio">Mateo works with salvaged hardwoods to create sculptural homewares that blend warmth and minimalism.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- studio story + image -->
+    <div class="atelier-story">
+      <div class="atelier-text">
+        <h2>The atelier in Lisbon’s Alfama</h2>
+        <p>Behind a cobalt-blue door, our flagship space doubles as a gallery, workshop, and meeting place for fellow slow makers. You’ll find shelves of unfired clay, looms humming, and a small shop where every piece has a tag signed by its maker.</p>
+        <p>Since 2021, we have hosted over 40 intimate workshops — from natural dyeing to hand-building ceramics. We invite you to visit by appointment or follow our open-studio days.</p>
+        <button class="btn-primary" style="background:#1e2a2f; color:white; border:none; padding:10px 26px; border-radius:40px; font-weight:500; cursor:pointer;" onclick="alert('🧿 Reserve a studio visit via aura@urbanaura.co')">Plan a visit →</button>
+      </div>
+      <div class="atelier-img">
+        <img src="https://picsum.photos/id/149/400/460" alt="UrbanAura atelier interior with ceramics">
+      </div>
+    </div>
+
+    <!-- newsletter section (align with brand) -->
+    <div class="newsletter-mini">
+      <h3>🌿 Join the inner circle</h3>
+      <p>The Aura Dispatch — monthly letters on craft, studio rituals, and early access to new drops.</p>
+      <div class="news-form">
+        <input type="email" id="auraEmail" placeholder="your email address">
+        <button onclick="subscribeAura()">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>UrbanAura</h4>
+        <p>Slow made, radically considered.</p>
+        <p>📍 Alfama, Lisbon · Kyoto · NYC</p>
+      </div>
+      <div class="footer-col">
+        
+    </div>
+    <div class="copyright">
+      © 2026 UrbanAura Collective — every piece tells a story.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function subscribeAura() {
+    const emailField = document.getElementById('auraEmail');
+    const email = emailField.value.trim();
+    if (email === "" || !email.includes("@") || !email.includes(".")) {
+      alert("🌙 Please enter a valid email to receive the Aura Dispatch.");
+    } else {
+      alert(`✨ Welcome, ${email.split('@')[0]}! You're now part of UrbanAura's inner circle. ✨`);
+      emailField.value = '';
+    }
+  }
+
+  // simple hover and interactive console message
+  console.log("UrbanAura Collective — about page: we believe in slow craft, honest stories, and warm spaces.");
+</script>
+
+<!-- ensure unique btn style -->
+<style>
+  .btn-primary {
+    transition: 0.2s;
+  }
+  .btn-primary:hover {
+    background: #c17b4c !important;
+    transform: translateY(-2px);
+  }
+</style>
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>UrbanAura Collective | Modern E‑commerce</title>
+  <!-- Google Fonts + simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #faf8f5;
+      color: #1e1e2a;
+      scroll-behavior: smooth;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header / navigation */
+    .site-header {
+      background-color: #ffffffdd;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e9e6e0;
+      padding: 18px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-area h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e2a3e, #2c5f5f);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .logo-area span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #5f6c7a;
+      display: block;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e3f;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #c17b4c;
+    }
+
+    .icon-group {
+      display: flex;
+      gap: 20px;
+    }
+
+    .icon-group span {
+      font-size: 1.4rem;
+      cursor: default;
+    }
+
+    /* hero section */
+    .hero {
+      margin: 48px 0 64px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      background: #fef7ed;
+      border-radius: 48px;
+      padding: 32px 40px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-content .badge {
+      background: #e9d9c9;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #5e3a2b;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h2 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #1e2a2f;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #4b5a62;
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+
+    .btn-primary {
+      background: #1e2a2f;
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #c17b4c;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 32px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+      object-fit: cover;
+    }
+
+    /* featured categories */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 650;
+      margin-bottom: 32px;
+      letter-spacing: -0.3px;
+      border-left: 5px solid #c17b4c;
+      padding-left: 20px;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 28px;
+      margin-bottom: 70px;
+    }
+
+    .category-card {
+      background: white;
+      border-radius: 28px;
+      text-align: center;
+      padding: 24px 12px;
+      transition: all 0.25s;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+      border: 1px solid #f0ebe3;
+      cursor: pointer;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
+      border-color: #decbb8;
+    }
+
+    .category-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 16px;
+      background: #f3efea;
+      padding: 8px;
+    }
+
+    .category-card h4 {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* featured products grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 32px;
+      margin: 40px 0 70px 0;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      border: 1px solid #ede8e0;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+
+    .product-info {
+      padding: 20px 18px 24px;
+    }
+
+    .product-info h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-weight: 700;
+      color: #c17b4c;
+      font-size: 1.3rem;
+      margin: 12px 0;
+    }
+
+    .rating {
+      color: #f4b642;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #1e2a2f;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      width: 100%;
+    }
+
+    .btn-outline:hover {
+      background: #1e2a2f;
+      color: white;
+    }
+
+    /* testimonial / unique brand story */
+    .story-section {
+      background: linear-gradient(105deg, #eae2d7 0%, #fef5ea 100%);
+      border-radius: 48px;
+      padding: 56px 40px;
+      margin: 64px 0 72px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .story-text {
+      flex: 1.2;
+    }
+
+    .story-text h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .story-text p {
+      color: #3b4a4d;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .story-img {
+      flex: 0.9;
+      text-align: center;
+    }
+
+    .story-img img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 32px;
+      box-shadow: 0 15px 20px rgba(0,0,0,0.1);
+    }
+
+    /* newsletter */
+    .newsletter {
+      background: #1e2a2f;
+      border-radius: 48px;
+      padding: 52px 40px;
+      text-align: center;
+      color: white;
+      margin-bottom: 64px;
+    }
+
+    .newsletter h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .newsletter p {
+      opacity: 0.8;
+      margin-bottom: 24px;
+    }
+
+    .news-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .news-form input {
+      flex: 2;
+      padding: 14px 20px;
+      border-radius: 60px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .news-form button {
+      background: #c17b4c;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 60px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer {
+      border-top: 1px solid #e3dbd0;
+      padding: 48px 0 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-col h4 {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #4f5a5e;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 24px 0 32px;
+      color: #7d8e94;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+      }
+      .hero-content p {
+        max-width: 100%;
+      }
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NTV0NLN2X5"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-NTV0NLN2X5');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo-area">
+      <h1>URBANaura</h1>
+      <span>collective · curated living</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      <div class="icon-group">
+        <span>🔍</span>
+        <span>🛒</span>
+        <span>👤</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- Hero section with unique imagery -->
+    <div class="hero">
+      <div class="hero-content">
+        <div class="badge">✦ WINTER DROP '26 ✦</div>
+        <h2>Where objects<br>tell a story.</h2>
+        <p>Discover handpicked ceramics, textiles, and modernist curiosities — every piece carries a narrative. Free shipping on all limited editions.</p>
+        <button class="btn-primary" onclick="alert('✨ Explore the collection ✨')">Shop the edit →</button>
+      </div>
+      <div class="hero-image">
+        <!-- unique hero image: abstract earthenware / lifestyle -->
+        <img src="https://picsum.photos/id/37/500/560" alt="UrbanAura hero ceramic interior" style="object-fit:cover;">
+      </div>
+    </div>
+
+    <!-- Categories section (unique names) -->
+    <div class="section-title">Curated realms</div>
+    <div class="categories-grid">
+      <div class="category-card">
+        <img src="https://picsum.photos/id/20/100/100" alt="stoneware">
+        <h4>Monolith Pottery</h4>
+        <p>Raw stoneware</p>
+      </div>
+      <div class="category-card">
+        <img src="https://picsum.photos/id/30/100/100" alt="textile">
+        <h4>Knot & Loom</h4>
+        <p>Organic fibers</p>
+      </div>
+      <div class="category-card">
+        <img src="https://picsum.photos/id/26/100/100" alt="ambient scent">
+        <h4>Moss & Ember</h4>
+        <p>Botanical candles</p>
+      </div>
+      <div class="category-card">
+        <img src="https://picsum.photos/id/84/100/100" alt="art prints">
+        <h4>Fugitive Editions</h4>
+        <p>Limited prints</p>
+      </div>
+    </div>
+
+    <!-- Featured products (unique product names with images) -->
+    <div class="section-title">Signature objects</div>
+    <div class="products-grid">
+      <!-- product 1 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/45/400/300" alt="sputnik vase">
+        <div class="product-info">
+          <h4>Marmoreal Vase</h4>
+          <div class="rating">★★★★☆ (42)</div>
+          <div class="price">$128</div>
+          <button class="btn-outline" onclick="alert('Marmoreal Vase added · unique form')">Add to cart</button>
+        </div>
+      </div>
+      <!-- product 2 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/29/400/300" alt="woven throw">
+        <div class="product-info">
+          <h4>Driftwood Throw</h4>
+          <div class="rating">★★★★★ (127)</div>
+          <div class="price">$189</div>
+          <button class="btn-outline" onclick="alert('Driftwood Throw · hand loomed')">Add to cart</button>
+        </div>
+      </div>
+      <!-- product 3 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/156/400/300" alt="glow candle">
+        <div class="product-info">
+          <h4>Ember Ritual Candle</h4>
+          <div class="rating">★★★★☆ (89)</div>
+          <div class="price">$56</div>
+          <button class="btn-outline" onclick="alert('Ember Ritual Candle · 80hr burn')">Add to cart</button>
+        </div>
+      </div>
+      <!-- product 4 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/36/400/300" alt="abstract print">
+        <div class="product-info">
+          <h4>Abstract No. 14</h4>
+          <div class="rating">★★★★☆ (34)</div>
+          <div class="price">$95</div>
+          <button class="btn-outline" onclick="alert('Abstract Print · archival ink')">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unique brand story: "The Atelier behind UrbanAura" with custom image -->
+    <div class="story-section">
+      <div class="story-text">
+        <h3>From clay to soul</h3>
+        <p>UrbanAura Collective wasn’t born from a factory — it emerged from a small atelier in the portuguese countryside, where potters, weavers and perfumers shape timeless pieces. Each object carries the mark of its maker and a quiet intention to last generations.</p>
+        <p>We partner with small-batch artisans across Europe and Japan, celebrating imperfections and raw textures. Our name reflects the duality: urban edge + earthy aura.</p>
+        <button class="btn-primary" style="background:#c17b4c;" onclick="alert('Our manifesto — coming soon')">Read the manifesto →</button>
+      </div>
+      <div class="story-img">
+        <img src="https://picsum.photos/id/102/400/400" alt="artisan workspace with ceramics">
+      </div>
+    </div>
+
+    <!-- newsletter sign-up -->
+    <div class="newsletter">
+      <h3>✦ The Aura Dispatch ✦</h3>
+      <p>First access to collections, studio visits and raw inspirations — no spam, only soul.</p>
+      <div class="news-form">
+        <input type="email" placeholder="your email address" id="newsEmail">
+        <button onclick="subscribeNewsletter()">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+    <div class="footer-col">
+      <h4>UrbanAura</h4>
+      <p>Slow made, radically considered.</p>
+      <p>📍 Lisbon · Kyoto · Brooklyn</p>
+    </div>
+    <div class="footer-col">
+      
+  </div>
+  <div class="copyright container">
+    © 2026 UrbanAura Collective — all forms are welcome.
+  </div>
+</footer>
+
+<script>
+  // Simple interactive subscription feedback with unique name/alert
+  function subscribeNewsletter() {
+    const emailInput = document.getElementById('newsEmail');
+    const email = emailInput.value.trim();
+    if (email === "" || !email.includes("@") || !email.includes(".")) {
+      alert("🌿 Please enter a valid email to join the Aura Dispatch 🌿");
+    } else {
+      alert(`✨ Thanks ${email.split('@')[0]}! You’re now part of the UrbanAura inner circle. ✨`);
+      emailInput.value = '';
+    }
+  }
+
+  // Additional small console greeting (unique brand imprint)
+  console.log("UrbanAura Collective | functional minimalism & narrative objects");
+</script>
+
+<!-- notes: all images are served via picsum, each with unique alt attributes. product and category names are original & distinct -->
+</body>
+</html>

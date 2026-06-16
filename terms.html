@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>UrbanAura Collective · Terms & Conditions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #faf8f5;
+      color: #1e1e2a;
+      line-height: 1.5;
+    }
+
+    /* reusable container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== header (consistent with homepage) ===== */
+    .site-header {
+      background-color: #ffffffdd;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e9e6e0;
+      padding: 18px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-area h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e2a3e, #2c5f5f);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .logo-area span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #5f6c7a;
+      display: block;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e3f;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #c17b4c;
+    }
+
+    .icon-group {
+      display: flex;
+      gap: 20px;
+    }
+
+    .icon-group span {
+      font-size: 1.4rem;
+      cursor: default;
+    }
+
+    /* ===== terms hero & main content ===== */
+    .terms-hero {
+      background: #fef7ed;
+      border-radius: 32px;
+      margin: 48px 0 32px 0;
+      padding: 48px 40px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .terms-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1e2a2f;
+      margin-bottom: 16px;
+    }
+
+    .terms-hero p {
+      font-size: 1rem;
+      color: #4b5a62;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .last-updated {
+      margin-top: 18px;
+      font-size: 0.85rem;
+      background: #e9e1d6;
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 40px;
+      color: #5e3a2b;
+    }
+
+    /* terms grid layout */
+    .terms-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 40px 0 70px;
+    }
+
+    .terms-sidebar {
+      flex: 1.2;
+      min-width: 220px;
+      background: white;
+      border-radius: 28px;
+      padding: 28px 20px;
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+      border: 1px solid #ede8e0;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+    }
+
+    .terms-sidebar h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border-left: 3px solid #c17b4c;
+      padding-left: 14px;
+    }
+
+    .terms-sidebar ul {
+      list-style: none;
+    }
+
+    .terms-sidebar li {
+      margin-bottom: 16px;
+    }
+
+    .terms-sidebar a {
+      text-decoration: none;
+      color: #3a5a5e;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 0.9rem;
+      display: block;
+    }
+
+    .terms-sidebar a:hover {
+      color: #c17b4c;
+      transform: translateX(4px);
+    }
+
+    .terms-content {
+      flex: 3;
+      background: white;
+      border-radius: 32px;
+      padding: 40px 44px;
+      border: 1px solid #f0ebe3;
+      box-shadow: 0 10px 25px -12px rgba(0,0,0,0.04);
+    }
+
+    .terms-section {
+      margin-bottom: 48px;
+      scroll-margin-top: 100px;
+    }
+
+    .terms-section h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #1e2a2f;
+      letter-spacing: -0.3px;
+      border-left: 4px solid #c17b4c;
+      padding-left: 18px;
+    }
+
+    .terms-section h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 24px 0 12px 0;
+      color: #2c5f5f;
+    }
+
+    .terms-section p {
+      margin-bottom: 16px;
+      color: #2c3e40;
+    }
+
+    .terms-section ul, .terms-section ol {
+      margin: 16px 0 20px 30px;
+      color: #2c3e40;
+    }
+
+    .terms-section li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box {
+      background: #fdf6ed;
+      border-radius: 24px;
+      padding: 24px;
+      margin: 24px 0;
+      border-left: 5px solid #c17b4c;
+    }
+
+    hr {
+      margin: 32px 0;
+      border: 0;
+      height: 1px;
+      background: #e9e0d6;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1e2a2f;
+      color: white;
+      padding: 10px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 20px;
+      transition: 0.2s;
+    }
+
+    .back-home:hover {
+      background: #c17b4c;
+      transform: translateY(-2px);
+    }
+
+    /* footer */
+    footer {
+      border-top: 1px solid #e3dbd0;
+      padding: 48px 0 32px;
+      margin-top: 20px;
+      background: #faf8f5;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-col h4 {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .footer-col p, .footer-col a {
+      color: #4f5a5e;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 24px 0 16px;
+      color: #7d8e94;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 860px) {
+      .terms-wrapper {
+        flex-direction: column;
+      }
+      .terms-sidebar {
+        position: static;
+        width: 100%;
+      }
+      .terms-content {
+        padding: 28px 24px;
+      }
+      .terms-hero h1 {
+        font-size: 2rem;
+      }
+      .header-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo-area">
+      <h1>URBANaura</h1>
+      <span>collective · curated living</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      <div class="icon-group">
+        <span>🔍</span>
+        <span>🛒</span>
+        <span>👤</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- Terms hero / intro -->
+    <div class="terms-hero">
+      <h1>Terms of use</h1>
+      <p>Welcome to UrbanAura Collective. These terms govern your use of our website, purchases, and interactions with our atelier. By accessing UrbanAura, you agree to the following conditions.</p>
+      <div class="last-updated">📜 Last revised: June 12, 2026</div>
+    </div>
+
+    <!-- Two-column layout with anchor navigation -->
+    <div class="terms-wrapper">
+      <!-- sticky sidebar navigation (unique and easy) -->
+      <aside class="terms-sidebar">
+        <h4>🔖 On this page</h4>
+        <ul>
+          <li><a href="#section-1">1. General & eligibility</a></li>
+          <li><a href="#section-2">2. Products & orders</a></li>
+          <li><a href="#section-3">3. Pricing & payments</a></li>
+          <li><a href="#section-4">4. Shipping & delivery</a></li>
+          <li><a href="#section-5">5. Returns & refunds</a></li>
+          <li><a href="#section-6">6. Intellectual property</a></li>
+          <li><a href="#section-7">7. User conduct</a></li>
+          <li><a href="#section-8">8. Limitation of liability</a></li>
+          <li><a href="#section-9">9. Governing law</a></li>
+          <li><a href="#section-10">10. Changes to terms</a></li>
+        </ul>
+        <div style="margin-top: 28px;">
+          <a href="#" style="font-size:0.85rem; display:inline-block;">⬅ Back to top</a>
+        </div>
+      </aside>
+
+      <!-- main legal content -->
+      <div class="terms-content">
+        <!-- section 1 -->
+        <div id="section-1" class="terms-section">
+          <h2>1. General & eligibility</h2>
+          <p>UrbanAura Collective ("we", "us", "our") operates the website <strong>urbanaura.co</strong> (the "Site"). These Terms of Use apply to all users, browsers, customers, and artisans who interact with our platform. By using the Site, you confirm that you are at least 18 years old or accessing under parental supervision, and that you provide accurate information when making a purchase.</p>
+          <p>We reserve the right to refuse service, terminate accounts, or cancel orders at our sole discretion, particularly in cases of suspected fraud or violation of these terms.</p>
+        </div>
+
+        <!-- section 2 -->
+        <div id="section-2" class="terms-section">
+          <h2>2. Products & orders</h2>
+          <p>All products displayed — including ceramics, textiles, art prints and apothecary goods — are curated in limited quantities. Each piece is described with its materials, dimensions, and provenance. While we strive for accuracy, slight variations in color, texture, or form are inherent to handcrafted objects and should be embraced as marks of authenticity.</p>
+          <p>Placing an order constitutes an offer to purchase. After you place an order, you will receive an acknowledgment email, but acceptance occurs only when we dispatch the goods. We may cancel any order if the product becomes unavailable or due to pricing errors.</p>
+          <div class="highlight-box">
+            ✦ <strong>Pre-order & made-to-order items</strong> — Some exclusive objects are made in small batches. Estimated lead times are indicated on the product page. By pre-ordering, you agree to potential delays due to artisan craftsmanship.
+          </div>
+        </div>
+
+        <!-- section 3 -->
+        <div id="section-3" class="terms-section">
+          <h2>3. Pricing & payments</h2>
+          <p>All prices are listed in USD ($) and exclude applicable taxes and shipping fees unless stated otherwise. We reserve the right to change prices at any time, but such changes will not affect orders already accepted.</p>
+          <p>We accept major credit cards, PayPal, and other region-specific methods. By providing payment details, you represent that you are authorized to use the chosen payment method. All transactions are secured via SSL encryption.</p>
+        </div>
+
+        <!-- section 4 -->
+        <div id="section-4" class="terms-section">
+          <h2>4. Shipping & delivery</h2>
+          <p>We ship worldwide from our atelier hubs. Delivery estimates are provided at checkout but are not guaranteed; delays caused by customs or couriers are beyond our control. Title and risk of loss pass to you upon delivery to the carrier. You are responsible for any import duties or customs fees.</p>
+          <p>If a package is returned to us due to incorrect address or failed delivery attempts, we may charge re-shipping costs. For lost or stolen parcels, please contact us within 14 days.</p>
+        </div>
+
+        <!-- section 5 -->
+        <div id="section-5" class="terms-section">
+          <h2>5. Returns & refunds</h2>
+          <p>We accept returns of unused, undamaged items within 14 days of delivery for a refund or store credit. Custom, made-to-order, or final-sale items are not eligible for return. To initiate a return, please contact <strong>aura@urbanaura.co</strong> with your order number.</p>
+          <p>Refunds will be processed within 14 business days after we receive the returned product. Original shipping costs are non-refundable. For defective or incorrect items, we cover return shipping and offer a full refund or exchange.</p>
+        </div>
+
+        <!-- section 6 -->
+        <div id="section-6" class="terms-section">
+          <h2>6. Intellectual property</h2>
+          <p>All content on this Site — including images, illustrations, product descriptions, logos, and the “UrbanAura Collective” mark — is owned by or licensed to us. You may not reproduce, distribute, modify, or commercially exploit any material without our prior written consent. However, you are welcome to share content for personal, non-commercial use if you credit our studio.</p>
+          <p>Our artisans retain moral rights over their designs. Any unauthorized copying infringes upon our creative community.</p>
+        </div>
+
+        <!-- section 7 -->
+        <div id="section-7" class="terms-section">
+          <h2>7. User conduct & reviews</h2>
+          <p>You agree not to misuse the Site by introducing viruses, attempting unauthorized access, or interfering with our services. You are solely responsible for any content you submit (reviews, comments, or stories). By posting, you grant UrbanAura a non-exclusive, royalty-free license to use, modify, and display that feedback for promotional purposes.</p>
+          <p>We moderate comments to maintain a respectful space; hate speech, spam, or false claims will be removed and may lead to account suspension.</p>
+        </div>
+
+        <!-- section 8 -->
+        <div id="section-8" class="terms-section">
+          <h2>8. Limitation of liability</h2>
+          <p>To the maximum extent permitted by law, UrbanAura Collective shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products or Site. Our total liability for any claim related to your purchase is limited to the amount you paid for the product in question. Some jurisdictions do not allow certain exclusions, so this may not apply to you.</p>
+          <p>We do not warrant that the Site will be uninterrupted or error-free, but we strive to provide a seamless experience.</p>
+        </div>
+
+        <!-- section 9 -->
+        <div id="section-9" class="terms-section">
+          <h2>9. Governing law & disputes</h2>
+          <p>These Terms shall be governed by and construed in accordance with the laws of Portugal (EU), without regard to conflict of law principles. Any disputes arising out of or relating to these Terms or your use of the Site shall be resolved through binding arbitration in Lisbon, unless you opt out within 30 days of first use.</p>
+          <p>For consumer disputes, you may also contact the European Commission's online dispute resolution platform.</p>
+        </div>
+
+        <!-- section 10 -->
+        <div id="section-10" class="terms-section">
+          <h2>10. Changes to these terms</h2>
+          <p>We may update these Terms periodically to reflect changes in our practices or legal requirements. The latest version will be posted here with the "last revised" date. Significant changes will be notified via email or a banner on our homepage. Your continued use of the Site after any modifications indicates acceptance of the updated Terms.</p>
+          <hr>
+          <p><strong>📬 Contact us</strong><br>
+          For any questions regarding these Terms, please reach out to our legal & care team:<br>
+          ✉️ <a href="mailto:legal@urbanaura.co" style="color:#c17b4c;">legal@urbanaura.co</a><br>
+          📍 UrbanAura Collective, Rua da Atelier 42, 1100-201 Lisboa, Portugal</p>
+        </div>
+
+        <div style="display: flex; justify-content: flex-start; margin-top: 20px;">
+          <a href="#" class="back-home">← Return to homepage (demo)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>UrbanAura</h4>
+        <p>Slow made, radically considered.</p>
+        <p>📍 Lisbon · Kyoto · Brooklyn</p>
+      </div>
+      <div class="footer-col">
+        
+    </div>
+    <div class="copyright">
+      © 2026 UrbanAura Collective — every form is welcome. <br> This page represents our binding terms of service.
+    </div>
+  </div>
+</footer>
+
+<!-- smooth scroll for anchor links -->
+<script>
+  document.querySelectorAll('.terms-sidebar a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+        // update url hash without jumping
+        history.pushState(null, null, `#${targetId}`);
+      }
+    });
+  });
+  // optional: if url contains hash on load, smooth scroll
+  if (window.location.hash) {
+    const id = window.location.hash.substring(1);
+    const elem = document.getElementById(id);
+    if (elem) {
+      setTimeout(() => {
+        elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+  // simple back to top for demo
+  const backTop = document.querySelector('.terms-sidebar a[href="#"]');
+  if(backTop) {
+    backTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+  console.log("UrbanAura Collective — terms page loaded with full legal clarity");
+</script>
+</body>
+</html>
